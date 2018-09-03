@@ -1,7 +1,10 @@
 var http = require('http');
-var port = 8080; 
+var port = 8080;
+
+//var requestHandler = require('./server.js').requestHandler;
 
 var requestHandler = function(request, response) {
+  //console.log("hello world");
   response.end('Request received!');
 };
 
