@@ -12,36 +12,53 @@
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
-            <!--
-
-                Implement a way to filter through listings using the search bar
-
-              -->
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
             <input type="text" class="form-control" placeholder="Search" ng-model="searchText" ng-change="applyFilter()">
           </div>
-          <div class="tableWrapper">
-            <table class="table table-striped table-hover">
-              <tr>
-                <th>Code</th>
-                <th>Building Name</th>
-                <th></th>
-              </tr>
-              <tr ng-click="showDetails(filteredListings.indexOf(object))" ng-repeat="object in filteredListings">
-                <td style="width:10%;">{{ object.code }}</td>
-                <td style="width:80%">{{ object.name }}</td>
-                <td style="width:10%"><a style="cursor:pointer;" ng-click="deleteListing(listings.indexOf(object))">remove</a>
-              </tr>
-            </table>
+          <div class="tableWrapper panel panel-default">
+            <div>
+              <table class="table table-striped table-hover">
+                <tr>
+                  <th>Code</th>
+                  <th>Building Name</th>
+                  <th></th>
+                </tr>
+                <tr ng-click="showDetails(filteredListings.indexOf(object))" ng-repeat="object in filteredListings">
+                  <td style="width:10%;">{{ object.code }}</td>
+                  <td style="width:80%">{{ object.name }}</td>
+                  <td style="width:10%"><a style="cursor:pointer;" ng-click="deleteListing(listings.indexOf(object))">remove</a>
+                </tr>
+              </table>
+            </div>
           </div>
-            <h3>Add new Building</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3>Add new Building</h3>
               <div class="form-group">
+                <label for="addListingFormDataName">Building name</label>
+                <input type="text" ng-model="addListingFormData.name" class="form-control" id="addListingFormDataName" placeholder="Example: 'Academic Advisement - Farrior Hall'">
               </div>
-          <!--
-
-              Write an HTML form that adds new listings to the directory
-
-            -->
+              <div class="form-group">
+                <label for="addListingFormDataCode">Building code</label>
+                <input type="text" ng-model="addListingFormData.code" class="form-control" id="addListingFormDataCode" placeholder="Example: 'AAF'">
+              </div>
+              <div class="form-group">
+                <label for="addListingFormDataLatitude">Building latitude</label>
+                <input type="text" ng-model="addListingFormData.coordinates.latitude" class="form-control" id="addListingFormDataLatitude" placeholder="Example: '29.6502323'">
+              </div>
+              <div class="form-group">
+                <label for="addListingFormDataLongitude">Building longitude</label>
+                <input type="text" ng-model="addListingFormData.coordinates.longitude" class="form-control" id="addListingFormDataLongitude" placeholder="Example: '-82.34563860000002'">
+              </div>
+              <div class="form-group">
+                <label for="addListingFormDataAddress">Building address</label>
+                <input type="text" ng-model="addListingFormData.address" class="form-control" id="addListingFormDataAddress" placeholder="Example: '100 Fletcher Dr, Gainesville, FL 32611, United States'">
+              </div>
+              <div class="form-group">
+                <input ng-click="addListing()" type="button" value="Add listing">
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-6">
           <div class="jumbotron">

@@ -1,24 +1,43 @@
 angular.module('listings').controller('ListingsController', ['$scope', 'Listings',
   function($scope, Listings) {
+    try {
     $scope.listings = Listings;
     $scope.detailedInfo = undefined;
+    $scope.addListingFormData = {
+      "name": "",
+      "code": "",
+      "coordinates": {
+        "latitude": "",
+        "longitude": "",
+      },
+      "address": "",
+    };
+    $scope.addListingFormDataDefault = {
+      "name": "",
+      "code": "",
+      "coordinates": {
+        "latitude": "",
+        "longitude": "",
+      },
+      "address": "",
+    };
     $scope.searchText = "";
     document.getElementById("jumbotronDisplay").style.display = "none";
     $scope.jumbotronlisting = {
       "code":"",
       "name":"",
-      "coordinates":{
-        "latitude":"",
-        "longitude":""
+      "coordinates": {
+        "latitude" : "",
+        "longitude": "",
       },
       "address":""
     };
     $scope.jumbotronlistingdefault = {
       "code":"",
       "name":"",
-      "coordinates":{
-        "latitude":"",
-        "longitude":""
+      "coordinates": {
+        "latitude" : "",
+        "longitude": "",
       },
       "address":""
     };
@@ -52,6 +71,12 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       as described in the assignment spec.
      */
     $scope.addListing = function() {};
+    $scope.addListing = function() {
+      $scope.addListingFormData.code = $scope.addListingFormData.code.toUpperCase();
+      $scope.listings.push($scope.addListingFormData);
+      $scope.applyFilter();
+      $scope.addListingFormData = $scope.addListingFormDataDefault;
+    };
     $scope.deleteListing = function(index) {
       try {
         if ($scope.listings[index] == $scope.jumbotronlisting) {
@@ -74,5 +99,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       document.getElementById("jumbotronDisplay").style.display = "initial";
       $scope.jumbotronlisting = $scope.filteredListings[index];
     };
+  } catch (err) {
+    alert(err.message);
+  }
   }
 ]);
