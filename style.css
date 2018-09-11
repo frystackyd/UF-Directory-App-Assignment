@@ -7,6 +7,54 @@
   overflow: auto;
 }
 
+body{
+background-color: rgb(0, 57, 77);
+}
+
 h1.UDA {
-  color: blue;
+  color:white;
+  padding:20px;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.top-bar{
+  border-radius: 10px;
+}
+
+.table-row{
+    background-color: rgb(230, 248, 255);
+}
+
+.jumbotron{
+  border-color:  rgb(230, 248, 255);
+  border-style: solid;
+  border-width: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Lucida Console", Monaco, monospace;
+
+}
+
+.jumbotronDisplay{
+  border-radius: 10px;
+}
+
+.panel{
+  background-color: rgb(230, 248, 255);
+  font-family: "Lucida Console", Monaco, monospace;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.panel2{
+  background-color: rgb(230, 248, 255);
+  font-family: "Lucida Console", Monaco, monospace;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   padding-left: 10px;
+   padding-right: 10px;
+   border-radius: 10px;
+}
+
+.add-header{
+  padding-bottom: 20px;
+  font-family: "Lucida Console", Monaco, monospace;
 }

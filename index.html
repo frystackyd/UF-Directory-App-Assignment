@@ -6,7 +6,7 @@
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <div class="row">
+      <div class="top-bar">
         <h1 class="UDA">UF Directory App</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
@@ -23,7 +23,7 @@
                   <th>Building Name</th>
                   <th></th>
                 </tr>
-                <tr ng-click="showDetails(filteredListings.indexOf(object))" ng-repeat="object in filteredListings">
+                <tr class="table-row" ng-click="showDetails(filteredListings.indexOf(object))" ng-repeat="object in filteredListings">
                   <td style="width:10%;">{{ object.code }}</td>
                   <td style="width:80%">{{ object.name }}</td>
                   <td style="width:10%"><a style="cursor:pointer;" ng-click="deleteListing(listings.indexOf(object))">remove</a>
@@ -31,31 +31,31 @@
               </table>
             </div>
           </div>
-          <div class="panel panel-default">
+          <div class="panel2 panel-default">
             <div class="panel-body">
-              <h3>Add new Building</h3>
+              <h2 class="add-header">Add new Building</h2>
               <div class="form-group">
                 <label for="addListingFormDataName">Building name</label>
-                <input type="text" ng-model="addListingFormData.name" class="form-control" id="addListingFormDataName" placeholder="Example: 'Academic Advisement - Farrior Hall'">
+                <input type="text" ng-model="addListingFormData.name" class="form-control" id="addListingFormDataName" placeholder="Enter The Building name in here'">
               </div>
               <div class="form-group">
                 <label for="addListingFormDataCode">Building code</label>
-                <input type="text" ng-model="addListingFormData.code" class="form-control" id="addListingFormDataCode" placeholder="Example: 'AAF'">
+                <input type="text" ng-model="addListingFormData.code" class="form-control" id="addListingFormDataCode" placeholder="Enter the Building Code in here">
               </div>
               <div class="form-group">
                 <label for="addListingFormDataLatitude">Building latitude</label>
-                <input type="text" ng-model="addListingFormData.coordinates.latitude" class="form-control" id="addListingFormDataLatitude" placeholder="Example: '29.6502323'">
+                <input type="text" ng-model="addListingFormData.coordinates.latitude" class="form-control" id="addListingFormDataLatitude" placeholder="Enter the latitude in here">
               </div>
               <div class="form-group">
                 <label for="addListingFormDataLongitude">Building longitude</label>
-                <input type="text" ng-model="addListingFormData.coordinates.longitude" class="form-control" id="addListingFormDataLongitude" placeholder="Example: '-82.34563860000002'">
+                <input type="text" ng-model="addListingFormData.coordinates.longitude" class="form-control" id="addListingFormDataLongitude" placeholder="Enter the longitude in here">
               </div>
               <div class="form-group">
                 <label for="addListingFormDataAddress">Building address</label>
-                <input type="text" ng-model="addListingFormData.address" class="form-control" id="addListingFormDataAddress" placeholder="Example: '100 Fletcher Dr, Gainesville, FL 32611, United States'">
+                <input type="text" ng-model="addListingFormData.address" class="form-control" id="addListingFormDataAddress" placeholder="Enter the address in here">
               </div>
               <div class="form-group">
-                <input ng-click="addListing()" type="button" value="Add listing">
+                <input class="btn btn-info" ng-click="addListing()" type="button" value="Add listing">
               </div>
             </div>
           </div>
