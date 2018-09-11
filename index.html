@@ -7,7 +7,7 @@
   <body ng-app="directoryApp">
     <div class="container">
       <div class="row">
-        <h1>UF Directory App</h1>
+        <h1 class="UDA">UF Directory App</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
@@ -28,20 +28,15 @@
                 <th></th>
               </tr>
               <tr ng-click="showDetails(filteredListings.indexOf(object))" ng-repeat="object in filteredListings">
-                <td>{{ object.code }}</td>
-                <td>{{ object.name }}</td>
-              </tr>
-
-              <!--
-
-                  Fill in the rest of the table:
-                      * populate the rows with the code and name of each listing
-                      * include a way to remove individual listings
-
-                -->
+                <td style="width:10%;">{{ object.code }}</td>
+                <td style="width:80%">{{ object.name }}</td>
+                <td style="width:10%"><a style="cursor:pointer;" ng-click="deleteListing(listings.indexOf(object))">remove</a>
               </tr>
             </table>
           </div>
+            <h3>Add new Building</h3>
+              <div class="form-group">
+              </div>
           <!--
 
               Write an HTML form that adds new listings to the directory
@@ -58,14 +53,6 @@
               <h5>Building latitude: {{jumbotronlisting.coordinates.latitude}}</h5>
               <h5>Building latitude: {{jumbotronlisting.coordinates.longitude}}</h5>
               <h5>Building address: {{jumbotronlisting.address}}</h5>
-
-
-            <!--
-
-              Include a way to display detailed information about an individual listing:
-                   * consider how to use ng-click within the the table to implement this feature
-
-             -->
             </div>
           </div>
         </div>
