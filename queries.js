@@ -30,11 +30,8 @@ var removeCable = function() {
     and remove this listing from your database and log the document to the console.
    */
 
-  // Listing.find({code : 'CABL'}, function(err, data){
-    // if(err) throw err;
-      Listing.findOneAndRemove({code : 'CABL'}, function(err){
+      Listing.findOneAndRemove({code : 'CABL'},function(err){
         if(err) throw err;
-        //console.log(data);
         console.log("delete");
    });
 
